@@ -1,20 +1,80 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# LMC Labs Website
 
-# Run and deploy your AI Studio app
+Official website for LMC Labs — premium tech accessories and eBay reseller based in Sydney, Australia.
 
-This contains everything you need to run your app locally.
+🌐 **Live:** [lachlancrawford.com.au](https://lachlancrawford.com.au)  
+🛒 **eBay:** [ebay.com.au/str/lachlansstore](https://www.ebay.com.au/str/lachlansstore)  
+📸 **Instagram:** [@lmc_labs](https://instagram.com/lmc_labs)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1T30Qd4i9l6zHkcg0Up0bTM0FqS7dPiNu
+## Tech Stack
 
-## Run Locally
+- **Frontend:** React + TypeScript + Vite + Tailwind CSS
+- **Backend:** Node.js + Express + Nodemailer
+- **Hosting:** GitHub Pages (frontend), your choice for backend
 
-**Prerequisites:**  Node.js
+## Getting Started
 
+### Frontend
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+npm run dev
+```
+
+Runs at `http://localhost:5173`
+
+### Backend (Email Notifications)
+
+```bash
+cd backend
+cp .env.example .env
+# Edit .env with your iCloud credentials
+npm install
+npm start
+```
+
+Runs at `http://localhost:3001`
+
+## Environment Variables
+
+### Backend (`backend/.env`)
+
+```
+ICLOUD_EMAIL=your-email@lachlancrawford.com.au
+ICLOUD_APP_PASSWORD=your-app-specific-password
+PORT=3001
+FRONTEND_URL=http://localhost:5173
+```
+
+### Frontend (Production)
+
+Set `VITE_API_URL` to your deployed backend URL when building.
+
+## Project Structure
+
+```
+├── components/          # React components
+├── backend/             # Express email server
+├── public/              # Static assets (logo, product images)
+├── constants.ts         # Business info, products data
+├── types.ts             # TypeScript interfaces
+└── App.tsx              # Main app component
+```
+
+## Features
+
+- Upcoming products showcase with category filtering
+- Email notification signup for product launches
+- Responsive design
+- eBay store integration
+- Instagram link
+
+## Deployment
+
+**Frontend:** Push to GitHub, enable GitHub Pages from `dist/` or use GitHub Actions.
+
+**Backend:** Deploy to Railway, Render, Fly.io, or any Node.js host. Update `FRONTEND_URL` for CORS and set `VITE_API_URL` in frontend build.
+
+---
+
+**LMC Labs** · ABN 36 181 184 048 · Sydney, Australia
